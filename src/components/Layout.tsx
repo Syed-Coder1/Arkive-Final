@@ -89,7 +89,7 @@ export function Layout({ children, currentPage, onPageChange }: LayoutProps) {
 
       {/* Sidebar */}
       <div className={clsx(
-        "z-40 bg-gradient-to-b from-blue-600 to-blue-700 dark:from-gray-800 dark:to-gray-900 shadow-xl transform transition-all duration-300 ease-in-out h-screen flex flex-col",
+        "z-40 bg-gradient-to-b from-blue-600 to-blue-700 dark:from-gray-800 dark:to-gray-900 shadow-xl transform transition-all duration-300 ease-in-out h-full flex flex-col fixed inset-y-0",
         sidebarOpen ? "fixed inset-y-0 left-0" : "fixed inset-y-0 left-0 -translate-x-full",
         "lg:translate-x-0 lg:static",
         sidebarCollapsed ? "lg:w-16" : "lg:w-72",
@@ -104,8 +104,8 @@ export function Layout({ children, currentPage, onPageChange }: LayoutProps) {
                     <Shield className="w-6 h-6 text-blue-600" />
                   </div>
                   <div>
-                    <h1 className="text-xl font-bold text-white tracking-tight">Arkive</h1>
-                    <p className="text-sm text-blue-100 mt-1">Tax Management</p>
+                    <h1 className="text-2xl font-bold text-white tracking-tight">Arkive</h1>
+                    <p className="text-base text-blue-100 mt-1">Tax Management</p>
                   </div>
                 </div>
               )}
@@ -118,7 +118,7 @@ export function Layout({ children, currentPage, onPageChange }: LayoutProps) {
               )}
               <button
                 onClick={toggleSidebarCollapse}
-                className="hidden lg:block p-2 rounded-lg hover:bg-white/10 text-blue-100 hover:text-white transition-all duration-200"
+                className="hidden lg:block p-2 rounded-lg hover:bg-white/10 text-blue-100 hover:text-white transition-all duration-200 text-lg"
               >
                 <div className={clsx("transition-transform duration-300", sidebarCollapsed ? "rotate-180" : "rotate-0")}>
                   {sidebarCollapsed ? <ChevronRight size={20} /> : <ChevronLeft size={20} />}
@@ -147,13 +147,13 @@ export function Layout({ children, currentPage, onPageChange }: LayoutProps) {
                   )}
                   title={sidebarCollapsed ? item.label : undefined}
                 >
-                  <Icon size={20} className={clsx(
+                  <Icon size={22} className={clsx(
                     "transition-all duration-200",
                     sidebarCollapsed ? "mx-auto" : "mr-2",
                     currentPage === item.id ? "text-white drop-shadow-sm" : ""
                   )} />
                   {!sidebarCollapsed && (
-                    <span className="transition-all duration-200 font-medium text-sm">{item.label}</span>
+                    <span className="transition-all duration-200 font-medium text-base">{item.label}</span>
                   )}
                 </button>
               );
@@ -166,26 +166,26 @@ export function Layout({ children, currentPage, onPageChange }: LayoutProps) {
             <div className={clsx("mb-4", sidebarCollapsed ? "flex flex-col items-center space-y-3" : "flex items-center justify-between")}>
               <button
                 onClick={toggleDarkMode}
-                className="p-2 rounded-xl bg-white/15 hover:bg-white/25 transition-all duration-300 hover:scale-110 backdrop-blur-sm border border-white/20"
+                className="p-3 rounded-xl bg-white/15 hover:bg-white/25 transition-all duration-300 hover:scale-110 backdrop-blur-sm border border-white/20"
                 title="Toggle Dark Mode"
               >
                 <div className={clsx("transition-all duration-300", themeTransition && "animate-spin")}>
-                  {darkMode ? <Sun size={18} className="text-yellow-300" /> : <Moon size={18} className="text-blue-100" />}
+                  {darkMode ? <Sun size={20} className="text-yellow-300" /> : <Moon size={20} className="text-blue-100" />}
                 </div>
               </button>
               <button
                 onClick={() => onPageChange('settings')}
-                className="p-2 text-blue-100 hover:text-white transition-all duration-300 rounded-xl hover:bg-white/15 hover:scale-110 backdrop-blur-sm border border-white/20"
+                className="p-3 text-blue-100 hover:text-white transition-all duration-300 rounded-xl hover:bg-white/15 hover:scale-110 backdrop-blur-sm border border-white/20"
                 title="Settings"
               >
-                <Settings size={18} />
+                <Settings size={20} />
               </button>
               <button
                 onClick={handleLogout}
-                className="p-2 text-blue-100 hover:text-red-300 transition-all duration-300 rounded-xl hover:bg-red-500/30 hover:scale-110 backdrop-blur-sm border border-white/20"
+                className="p-3 text-blue-100 hover:text-red-300 transition-all duration-300 rounded-xl hover:bg-red-500/30 hover:scale-110 backdrop-blur-sm border border-white/20"
                 title="Logout"
               >
-                <LogOut size={18} />
+                <LogOut size={20} />
               </button>
             </div>
             
@@ -194,8 +194,8 @@ export function Layout({ children, currentPage, onPageChange }: LayoutProps) {
                 {/* User Info */}
                 <div className="flex items-center">
                   <div>
-                    <p className="text-sm font-bold text-white">{user?.username}</p>
-                    <p className="text-xs text-blue-200 capitalize flex items-center font-medium">
+                    <p className="text-base font-bold text-white">{user?.username}</p>
+                    <p className="text-sm text-blue-200 capitalize flex items-center font-medium">
                       {user?.role === 'admin' && <Shield className="w-3 h-3 mr-1" />}
                       {user?.role}
                     </p>
@@ -214,7 +214,7 @@ export function Layout({ children, currentPage, onPageChange }: LayoutProps) {
       </div>
 
       {/* Content */}
-      <main className="flex-1 overflow-y-auto bg-gradient-to-br from-gray-50 via-blue-50/30 to-indigo-50/30 dark:from-gray-900 dark:via-blue-900/10 dark:to-indigo-900/10">
+      <main className="flex-1 overflow-y-auto bg-gradient-to-br from-gray-50 via-blue-50/30 to-indigo-50/30 dark:from-gray-900 dark:via-blue-900/10 dark:to-indigo-900/10 ml-0">
         <div className="p-4 md:p-6 max-w-7xl mx-auto">
           {children}
         </div>
