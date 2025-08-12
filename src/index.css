@@ -367,7 +367,7 @@ a, button, input, select, textarea {
   justify-content: center;
   padding: 1rem;
   backdrop-filter: blur(16px);
-  background: rgba(0, 0, 0, 0.75);
+  background: rgba(0, 0, 0, 0.85);
   animation: fadeIn 0.2s ease-out;
 }
 

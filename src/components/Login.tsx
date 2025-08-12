@@ -186,24 +186,24 @@ export function Login() {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-blue-50 via-indigo-50 to-purple-50 dark:from-gray-900 dark:via-blue-900 dark:to-indigo-900 flex items-center justify-center p-4 animate-gradient-flow">
-      <div className="glass-card rounded-3xl shadow-premium-lg p-8 w-full max-w-lg animate-fadeIn">
+    <div className="h-screen bg-gradient-to-br from-blue-50 via-indigo-50 to-purple-50 dark:from-gray-900 dark:via-blue-900 dark:to-indigo-900 flex items-center justify-center p-8 animate-gradient-flow overflow-hidden">
+      <div className="glass-card rounded-3xl shadow-premium-lg p-8 w-full max-w-md animate-fadeIn">
         {/* Logo and Branding */}
-        <div className="text-center mb-10">
-          <div className="mx-auto w-28 h-28 bg-gradient-to-br from-blue-600 via-indigo-600 to-purple-600 rounded-3xl flex items-center justify-center mb-8 shadow-premium-lg animate-gentle-bounce">
-            <Shield className="w-16 h-16 text-white drop-shadow-lg" />
+        <div className="text-center mb-6">
+          <div className="mx-auto w-20 h-20 bg-gradient-to-br from-blue-600 via-indigo-600 to-purple-600 rounded-3xl flex items-center justify-center mb-6 shadow-premium-lg animate-gentle-bounce">
+            <Shield className="w-12 h-12 text-white drop-shadow-lg" />
           </div>
           <div className="mb-2">
-            <h1 className="text-5xl font-bold text-gradient mb-2">
+            <h1 className="text-4xl font-bold text-gradient mb-2">
               Arkive
             </h1>
-            <p className="text-gray-600 dark:text-gray-400 text-lg font-bold mt-3">
+            <p className="text-gray-600 dark:text-gray-400 text-base font-bold mt-2">
               Secure Tax Management System
             </p>
           </div>
           
           {/* Connection Status */}
-          <div className="flex items-center justify-center space-x-3 text-sm mt-6 glass-card rounded-full px-6 py-3 border border-gray-200 dark:border-gray-600">
+          <div className="flex items-center justify-center space-x-3 text-sm mt-4 glass-card rounded-full px-4 py-2 border border-gray-200 dark:border-gray-600">
             {isOnline ? (
               <Wifi className="w-5 h-5 text-green-500" />
             ) : (
@@ -214,7 +214,7 @@ export function Login() {
             </span>
           </div>
           
-          <div className="flex items-center justify-center space-x-8 text-sm text-gray-500 dark:text-gray-400 mt-6">
+          <div className="flex items-center justify-center space-x-6 text-sm text-gray-500 dark:text-gray-400 mt-4">
             <div className="flex items-center">
               <div className="p-2 bg-blue-100 dark:bg-blue-900/30 rounded-lg mr-2">
                 <Shield className="w-4 h-4 text-blue-600" />
@@ -231,17 +231,17 @@ export function Login() {
         </div>
 
         {/* Mode Toggle */}
-        <div className="space-y-4 mb-10">
+        <div className="space-y-3 mb-6">
           <button
             type="button"
             onClick={() => switchMode('login')}
-            className={`w-full py-5 px-8 rounded-2xl text-lg font-bold transition-all duration-500 flex items-center justify-center shadow-premium ${
+            className={`w-full py-4 px-6 rounded-2xl text-base font-bold transition-all duration-500 flex items-center justify-center shadow-premium ${
               mode === 'login'
                 ? 'btn-premium text-white shadow-premium-lg transform scale-105'
                 : 'glass-card text-gray-600 dark:text-gray-400 hover:scale-102 border border-gray-200 dark:border-gray-600'
             }`}
           >
-            <LogIn className="w-6 h-6 mr-4" />
+            <LogIn className="w-5 h-5 mr-3" />
             Sign In to Account
           </button>
           
@@ -249,13 +249,13 @@ export function Login() {
             type="button"
             onClick={() => switchMode('signup')}
             disabled={!canCreateAdmin}
-            className={`w-full py-5 px-8 rounded-2xl text-lg font-bold transition-all duration-500 flex items-center justify-center shadow-premium ${
+            className={`w-full py-4 px-6 rounded-2xl text-base font-bold transition-all duration-500 flex items-center justify-center shadow-premium ${
               mode === 'signup'
                 ? 'btn-premium text-white shadow-premium-lg transform scale-105'
                 : 'glass-card text-gray-600 dark:text-gray-400 hover:scale-102 border border-gray-200 dark:border-gray-600'
             } ${!canCreateAdmin ? 'opacity-50 cursor-not-allowed' : ''}`}
           >
-            <UserPlus className="w-6 h-6 mr-4" />
+            <UserPlus className="w-5 h-5 mr-3" />
             Create Admin Account
           </button>
         </div>
@@ -274,7 +274,7 @@ export function Login() {
 
         <form onSubmit={handleSubmit} className="space-y-6">
           <div>
-            <label htmlFor="username" className="block text-sm font-semibold text-gray-700 dark:text-gray-300 mb-3">
+            <label htmlFor="username" className="block text-sm font-semibold text-gray-700 dark:text-gray-300 mb-2">
               Username
             </label>
             <input
@@ -282,7 +282,7 @@ export function Login() {
               id="username"
               value={username}
               onChange={(e) => setUsername(e.target.value)}
-              className="w-full px-4 py-4 border-2 border-gray-300 dark:border-gray-600 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-all duration-300 bg-white dark:bg-gray-700 text-gray-900 dark:text-white placeholder-gray-500 dark:placeholder-gray-400 text-lg font-medium"
+              className="w-full px-4 py-3 border-2 border-gray-300 dark:border-gray-600 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-all duration-300 bg-white dark:bg-gray-700 text-gray-900 dark:text-white placeholder-gray-500 dark:placeholder-gray-400 text-base font-medium"
               placeholder="Enter your username"
               required
               autoFocus
@@ -292,7 +292,7 @@ export function Login() {
           </div>
 
           <div>
-            <label htmlFor="password" className="block text-sm font-semibold text-gray-700 dark:text-gray-300 mb-3">
+            <label htmlFor="password" className="block text-sm font-semibold text-gray-700 dark:text-gray-300 mb-2">
               Password
             </label>
             <div className="relative">
@@ -301,7 +301,7 @@ export function Login() {
                 id="password"
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
-                className="w-full px-4 py-4 border-2 border-gray-300 dark:border-gray-600 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-all duration-300 pr-12 bg-white dark:bg-gray-700 text-gray-900 dark:text-white placeholder-gray-500 dark:placeholder-gray-400 text-lg font-medium"
+                className="w-full px-4 py-3 border-2 border-gray-300 dark:border-gray-600 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-all duration-300 pr-12 bg-white dark:bg-gray-700 text-gray-900 dark:text-white placeholder-gray-500 dark:placeholder-gray-400 text-base font-medium"
                 placeholder="Enter your password"
                 required
                 minLength={6}
@@ -313,14 +313,14 @@ export function Login() {
                 className="absolute right-4 top-1/2 transform -translate-y-1/2 text-gray-400 dark:text-gray-500 hover:text-gray-600 dark:hover:text-gray-300 transition-colors duration-300 p-1 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-600"
                 disabled={loading}
               >
-                {showPassword ? <EyeOff size={22} /> : <Eye size={22} />}
+                {showPassword ? <EyeOff size={20} /> : <Eye size={20} />}
               </button>
             </div>
           </div>
 
           {mode === 'signup' && (
             <div>
-              <label htmlFor="confirmPassword" className="block text-sm font-semibold text-gray-700 dark:text-gray-300 mb-3">
+              <label htmlFor="confirmPassword" className="block text-sm font-semibold text-gray-700 dark:text-gray-300 mb-2">
                 Confirm Password
               </label>
               <div className="relative">
@@ -329,7 +329,7 @@ export function Login() {
                   id="confirmPassword"
                   value={confirmPassword}
                   onChange={(e) => setConfirmPassword(e.target.value)}
-                  className="w-full px-4 py-4 border-2 border-gray-300 dark:border-gray-600 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-all duration-300 pr-12 bg-white dark:bg-gray-700 text-gray-900 dark:text-white placeholder-gray-500 dark:placeholder-gray-400 text-lg font-medium"
+                  className="w-full px-4 py-3 border-2 border-gray-300 dark:border-gray-600 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-all duration-300 pr-12 bg-white dark:bg-gray-700 text-gray-900 dark:text-white placeholder-gray-500 dark:placeholder-gray-400 text-base font-medium"
                   placeholder="Confirm your password"
                   required
                   minLength={6}
@@ -341,7 +341,7 @@ export function Login() {
                   className="absolute right-4 top-1/2 transform -translate-y-1/2 text-gray-400 dark:text-gray-500 hover:text-gray-600 dark:hover:text-gray-300 transition-colors duration-300 p-1 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-600"
                   disabled={loading}
                 >
-                  {showConfirmPassword ? <EyeOff size={22} /> : <Eye size={22} />}
+                  {showConfirmPassword ? <EyeOff size={20} /> : <Eye size={20} />}
                 </button>
               </div>
             </div>
@@ -366,7 +366,7 @@ export function Login() {
           <button
             type="submit"
             disabled={loading || (mode === 'signup' && !canCreateAdmin)}
-            className="w-full bg-gradient-to-r from-blue-600 to-indigo-600 text-white py-4 px-6 rounded-xl hover:from-blue-700 hover:to-indigo-700 focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 disabled:opacity-50 disabled:cursor-not-allowed transition-all duration-300 font-bold text-lg shadow-xl hover:shadow-2xl transform hover:scale-105 disabled:hover:scale-100"
+            className="w-full bg-gradient-to-r from-blue-600 to-indigo-600 text-white py-3 px-6 rounded-xl hover:from-blue-700 hover:to-indigo-700 focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 disabled:opacity-50 disabled:cursor-not-allowed transition-all duration-300 font-bold text-base shadow-xl hover:shadow-2xl transform hover:scale-105 disabled:hover:scale-100"
           >
             {loading ? (
               <div className="flex items-center justify-center">
@@ -377,12 +377,12 @@ export function Login() {
               <div className="flex items-center justify-center">
                 {mode === 'login' ? (
                   <>
-                    <LogIn className="w-6 h-6 mr-3" />
+                    <LogIn className="w-5 h-5 mr-2" />
                     Sign In
                   </>
                 ) : (
                   <>
-                    <UserPlus className="w-6 h-6 mr-3" />
+                    <UserPlus className="w-5 h-5 mr-2" />
                     Create Admin Account
                   </>
                 )}
@@ -392,12 +392,12 @@ export function Login() {
         </form>
 
         {/* Security Features */}
-        <div className="mt-10 pt-8 border-t border-gray-200 dark:border-gray-700">
+        <div className="mt-6 pt-6 border-t border-gray-200 dark:border-gray-700">
           <div className="text-center">
             <p className="text-sm font-medium text-gray-500 dark:text-gray-400 mb-4">
               Security Features
             </p>
-            <div className="grid grid-cols-2 gap-6 text-sm text-gray-600 dark:text-gray-400">
+            <div className="grid grid-cols-2 gap-4 text-sm text-gray-600 dark:text-gray-400">
               <div className="flex items-center justify-center">
                 <Shield className="w-4 h-4 mr-2 text-green-500" />
                 <span className="font-medium">Firebase Sync</span>
@@ -412,14 +412,14 @@ export function Login() {
 
         {/* Default Credentials */}
         {mode === 'login' && (
-          <div className="mt-8 text-center text-sm text-gray-500 dark:text-gray-400 bg-gradient-to-r from-blue-50 to-indigo-50 dark:from-blue-900/20 dark:to-indigo-900/20 rounded-xl p-6 border-2 border-blue-200 dark:border-blue-700">
+          <div className="mt-6 text-center text-sm text-gray-500 dark:text-gray-400 bg-gradient-to-r from-blue-50 to-indigo-50 dark:from-blue-900/20 dark:to-indigo-900/20 rounded-xl p-4 border-2 border-blue-200 dark:border-blue-700">
             <p className="font-semibold mb-2 text-gray-700 dark:text-gray-300">Default Admin Credentials:</p>
-            <div className="space-y-3">
+            <div className="space-y-2">
               <p className="flex items-center justify-center gap-2">
-                Username: <code className="bg-blue-100 dark:bg-blue-900/50 px-3 py-2 rounded-lg font-mono font-bold text-blue-800 dark:text-blue-200">admin</code>
+                Username: <code className="bg-blue-100 dark:bg-blue-900/50 px-2 py-1 rounded font-mono font-bold text-blue-800 dark:text-blue-200">admin</code>
               </p>
               <p className="flex items-center justify-center gap-2">
-                Password: <code className="bg-blue-100 dark:bg-blue-900/50 px-3 py-2 rounded-lg font-mono font-bold text-blue-800 dark:text-blue-200">admin123</code>
+                Password: <code className="bg-blue-100 dark:bg-blue-900/50 px-2 py-1 rounded font-mono font-bold text-blue-800 dark:text-blue-200">admin123</code>
               </p>
             </div>
           </div>
