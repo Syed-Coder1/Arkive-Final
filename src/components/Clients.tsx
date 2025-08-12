@@ -13,7 +13,8 @@ import {
   DollarSign,
   CreditCard,
   AlertCircle,
-  CheckCircle
+  CheckCircle,
+  Activity
 } from 'lucide-react';
 import { useClients, useReceipts } from '../hooks/useDatabase';
 import { useAuth } from '../contexts/AuthContext';
