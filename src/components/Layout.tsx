@@ -4,6 +4,7 @@ import {
   Settings, LogOut, Menu, X, Moon, Sun, TrendingUp, ChevronLeft, Shield,
   ChevronRight, Bell, Calculator
 } from 'lucide-react';
+import { User } from 'lucide-react';
 import { useAuth } from '../contexts/AuthContext';
 import { clsx } from 'clsx';
 
@@ -91,7 +92,7 @@ export function Layout({ children, currentPage, onPageChange }: LayoutProps) {
         "z-40 bg-gradient-to-b from-blue-600 to-blue-700 dark:from-gray-800 dark:to-gray-900 shadow-xl transform transition-all duration-300 ease-in-out h-screen flex flex-col",
         sidebarOpen ? "fixed inset-y-0 left-0" : "fixed inset-y-0 left-0 -translate-x-full",
         "lg:translate-x-0 lg:static",
-        sidebarCollapsed ? "lg:w-20" : "lg:w-56",
+        sidebarCollapsed ? "lg:w-16" : "lg:w-52",
         "w-64" // Always full width on mobile
       )}>
           {/* Header */}
@@ -161,35 +162,35 @@ export function Layout({ children, currentPage, onPageChange }: LayoutProps) {
 
           {/* Footer */}
           <div className={clsx("border-t border-blue-500/30 dark:border-gray-700/50 mt-auto backdrop-blur-sm", sidebarCollapsed ? "p-3" : "p-4")}>
+            {/* Action Buttons - Moved above user info */}
+            <div className={clsx("mb-4", sidebarCollapsed ? "flex flex-col items-center space-y-3" : "flex items-center justify-between")}>
+              <button
+                onClick={toggleDarkMode}
+                className="p-2 rounded-xl bg-white/15 hover:bg-white/25 transition-all duration-300 hover:scale-110 backdrop-blur-sm border border-white/20"
+                title="Toggle Dark Mode"
+              >
+                <div className={clsx("transition-all duration-300", themeTransition && "animate-spin")}>
+                  {darkMode ? <Sun size={18} className="text-yellow-300" /> : <Moon size={18} className="text-blue-100" />}
+                </div>
+              </button>
+              <button
+                onClick={() => onPageChange('settings')}
+                className="p-2 text-blue-100 hover:text-white transition-all duration-300 rounded-xl hover:bg-white/15 hover:scale-110 backdrop-blur-sm border border-white/20"
+                title="Settings"
+              >
+                <Settings size={18} />
+              </button>
+              <button
+                onClick={handleLogout}
+                className="p-2 text-blue-100 hover:text-red-300 transition-all duration-300 rounded-xl hover:bg-red-500/30 hover:scale-110 backdrop-blur-sm border border-white/20"
+                title="Logout"
+              >
+                <LogOut size={18} />
+              </button>
+            </div>
+            
             {!sidebarCollapsed ? (
               <>
-                {/* Action Buttons */}
-                <div className="flex items-center justify-between mb-4">
-                  <button
-                    onClick={toggleDarkMode}
-                    className="p-2 rounded-xl bg-white/15 hover:bg-white/25 transition-all duration-300 hover:scale-110 backdrop-blur-sm border border-white/20"
-                    title="Toggle Dark Mode"
-                  >
-                    <div className={clsx("transition-all duration-300", themeTransition && "animate-spin")}>
-                      {darkMode ? <Sun size={18} className="text-yellow-300" /> : <Moon size={18} className="text-blue-100" />}
-                    </div>
-                  </button>
-                  <button
-                    onClick={() => onPageChange('settings')}
-                    className="p-2 text-blue-100 hover:text-white transition-all duration-300 rounded-xl hover:bg-white/15 hover:scale-110 backdrop-blur-sm border border-white/20"
-                    title="Settings"
-                  >
-                    <Settings size={18} />
-                  </button>
-                  <button
-                    onClick={handleLogout}
-                    className="p-2 text-blue-100 hover:text-red-300 transition-all duration-300 rounded-xl hover:bg-red-500/30 hover:scale-110 backdrop-blur-sm border border-white/20"
-                    title="Logout"
-                  >
-                    <LogOut size={18} />
-                  </button>
-                </div>
-                
                 {/* User Info */}
                 <div className="flex items-center">
                   <div>
@@ -202,38 +203,19 @@ export function Layout({ children, currentPage, onPageChange }: LayoutProps) {
                 </div>
               </>
             ) : (
-              <div className="flex flex-col items-center space-y-3">
-                <button 
-                  onClick={toggleDarkMode} 
-                  className="p-2 rounded-xl bg-white/15 hover:bg-white/25 transition-all duration-300 hover:scale-110 backdrop-blur-sm border border-white/20"
-                  title="Toggle Dark Mode"
-                >
-                  <div className={clsx("transition-all duration-300", themeTransition && "animate-spin")}>
-                    {darkMode ? <Sun size={18} className="text-yellow-300" /> : <Moon size={18} className="text-blue-100" />}
-                  </div>
-                </button>
-                <button
-                  onClick={() => onPageChange('settings')}
-                  className="p-2 text-blue-100 hover:text-white transition-all duration-300 rounded-xl hover:bg-white/15 hover:scale-110 backdrop-blur-sm border border-white/20"
-                  title="Settings"
-                >
-                  <Settings size={18} />
-                </button>
-                <button
-                  onClick={handleLogout}
-                  className="p-2 text-blue-100 hover:text-red-300 transition-all duration-300 rounded-xl hover:bg-red-500/30 hover:scale-110 backdrop-blur-sm border border-white/20"
-                  title="Logout"
-                >
-                  <LogOut size={18} />
-                </button>
+              /* User info for collapsed sidebar */
+              <div className="text-center">
+                <div className="w-8 h-8 bg-gradient-to-br from-blue-500 to-purple-600 rounded-full flex items-center justify-center mx-auto">
+                  <User className="w-4 h-4 text-white" />
+                </div>
               </div>
             )}
           </div>
       </div>
 
       {/* Content */}
-      <main className="flex-1 overflow-y-auto bg-gradient-to-br from-gray-50 via-blue-50/30 to-indigo-50/30 dark:from-gray-900 dark:via-blue-900/10 dark:to-indigo-900/10">
-        <div className="p-4 md:p-6 max-w-7xl mx-auto">
+      <main className="flex-1 overflow-y-auto bg-gradient-to-br from-gray-50 via-blue-50/30 to-indigo-50/30 dark:from-gray-900 dark:via-blue-900/10 dark:to-indigo-900/10 ml-1">
+        <div className="p-3 md:p-4 max-w-7xl mx-auto">
           {children}
         </div>
       </main>

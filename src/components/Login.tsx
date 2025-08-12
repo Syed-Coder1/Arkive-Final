@@ -186,49 +186,62 @@ export function Login() {
   };
 
   return (
-    <div className="h-screen bg-gradient-to-br from-blue-50 via-indigo-50 to-purple-50 dark:from-gray-900 dark:via-blue-900 dark:to-indigo-900 flex items-center justify-center p-8 animate-gradient-flow overflow-hidden">
-      <div className="glass-card rounded-3xl shadow-premium-lg p-8 w-full max-w-md animate-fadeIn">
-        {/* Logo and Branding */}
-        <div className="text-center mb-6">
-          <div className="mx-auto w-20 h-20 bg-gradient-to-br from-blue-600 via-indigo-600 to-purple-600 rounded-3xl flex items-center justify-center mb-6 shadow-premium-lg animate-gentle-bounce">
-            <Shield className="w-12 h-12 text-white drop-shadow-lg" />
-          </div>
-          <div className="mb-2">
-            <h1 className="text-4xl font-bold text-gradient mb-2">
+    <div className="h-screen bg-gradient-to-br from-blue-50 via-indigo-50 to-purple-50 dark:from-gray-900 dark:via-blue-900 dark:to-indigo-900 flex items-center justify-center p-4 animate-gradient-flow overflow-hidden">
+      <div className="glass-card rounded-3xl shadow-premium-lg p-6 w-full max-w-4xl animate-fadeIn">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
+          {/* Left side - Branding */}
+          <div className="text-center lg:text-left">
+            <div className="mx-auto lg:mx-0 w-24 h-24 bg-gradient-to-br from-blue-600 via-indigo-600 to-purple-600 rounded-3xl flex items-center justify-center mb-6 shadow-premium-lg animate-gentle-bounce">
+              <Shield className="w-16 h-16 text-white drop-shadow-lg" />
+            </div>
+            <h1 className="text-6xl font-bold text-gradient mb-4">
               Arkive
             </h1>
-            <p className="text-gray-600 dark:text-gray-400 text-base font-bold mt-2">
+            <p className="text-gray-600 dark:text-gray-400 text-xl font-bold mb-6">
               Secure Tax Management System
             </p>
+            
+            <div className="flex items-center justify-center lg:justify-start space-x-8 text-base text-gray-500 dark:text-gray-400 mb-8">
+              <div className="flex items-center">
+                <div className="p-3 bg-blue-100 dark:bg-blue-900/30 rounded-xl mr-3">
+                  <Shield className="w-6 h-6 text-blue-600" />
+                </div>
+                <span className="font-semibold">Encrypted</span>
+              </div>
+              <div className="flex items-center">
+                <div className="p-3 bg-green-100 dark:bg-green-900/30 rounded-xl mr-3">
+                  <Users className="w-6 h-6 text-green-600" />
+                </div>
+                <span className="font-semibold">Multi-User</span>
+              </div>
+            </div>
+            
+            {/* Connection Status */}
+            <div className="flex items-center justify-center lg:justify-start space-x-3 text-base">
+              <div className="glass-card rounded-full px-6 py-3 border border-gray-200 dark:border-gray-600">
+                {isOnline ? (
+                  <Wifi className="w-6 h-6 text-green-500 inline mr-3" />
+                ) : (
+                  <WifiOff className="w-6 h-6 text-red-500 inline mr-3" />
+                )}
+                <span className={`font-bold ${isOnline ? 'text-green-600 dark:text-green-400' : 'text-red-600 dark:text-red-400'}`}>
+                  {syncStatus}
+                </span>
+              </div>
+            </div>
           </div>
           
-          {/* Connection Status */}
-          <div className="flex items-center justify-center space-x-3 text-sm mt-4 glass-card rounded-full px-4 py-2 border border-gray-200 dark:border-gray-600">
-            {isOnline ? (
-              <Wifi className="w-5 h-5 text-green-500" />
-            ) : (
-              <WifiOff className="w-5 h-5 text-red-500" />
-            )}
-            <span className={`font-bold ${isOnline ? 'text-green-600 dark:text-green-400' : 'text-red-600 dark:text-red-400'}`}>
-              {syncStatus}
-            </span>
-          </div>
-          
-          <div className="flex items-center justify-center space-x-6 text-sm text-gray-500 dark:text-gray-400 mt-4">
-            <div className="flex items-center">
-              <div className="p-2 bg-blue-100 dark:bg-blue-900/30 rounded-lg mr-2">
-                <Shield className="w-4 h-4 text-blue-600" />
-              </div>
-              <span className="font-semibold">Encrypted</span>
+          {/* Right side - Login Form */}
+          <div className="w-full max-w-md mx-auto lg:mx-0">
+        {/* Logo and Branding */}
+            <div className="text-center mb-6">
+              <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-2">
+                Welcome Back
+              </h2>
+              <p className="text-gray-600 dark:text-gray-400">
+                Sign in to your account
+              </p>
             </div>
-            <div className="flex items-center">
-              <div className="p-2 bg-green-100 dark:bg-green-900/30 rounded-lg mr-2">
-                <Users className="w-4 h-4 text-green-600" />
-              </div>
-              <span className="font-semibold">Multi-User</span>
-            </div>
-          </div>
-        </div>
 
         {/* Mode Toggle */}
         <div className="space-y-3 mb-6">
@@ -412,7 +425,7 @@ export function Login() {
 
         {/* Default Credentials */}
         {mode === 'login' && (
-          <div className="mt-6 text-center text-sm text-gray-500 dark:text-gray-400 bg-gradient-to-r from-blue-50 to-indigo-50 dark:from-blue-900/20 dark:to-indigo-900/20 rounded-xl p-4 border-2 border-blue-200 dark:border-blue-700">
+          <div className="mt-4 text-center text-sm text-gray-500 dark:text-gray-400 bg-gradient-to-r from-blue-50 to-indigo-50 dark:from-blue-900/20 dark:to-indigo-900/20 rounded-xl p-4 border-2 border-blue-200 dark:border-blue-700">
             <p className="font-semibold mb-2 text-gray-700 dark:text-gray-300">Default Admin Credentials:</p>
             <div className="space-y-2">
               <p className="flex items-center justify-center gap-2">
@@ -424,6 +437,8 @@ export function Login() {
             </div>
           </div>
         )}
+          </div>
+        </div>
       </div>
     </div>
   );
