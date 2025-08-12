@@ -48,7 +48,7 @@ export default function Login() {
   };
 
   return (
-    <div className="h-screen overflow-hidden bg-gradient-to-br from-blue-50 to-indigo-100 dark:from-gray-900 dark:to-gray-800">
+    <div className="login-page h-screen overflow-hidden bg-gradient-to-br from-blue-50 to-indigo-100 dark:from-gray-900 dark:to-gray-800">
       <div className="h-full grid grid-cols-2">
         {/* Left side - Branding */}
         <div className="flex items-center justify-center bg-gradient-to-br from-blue-600 to-indigo-700 text-white p-12">

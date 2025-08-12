@@ -75,7 +75,7 @@ export function Layout({ children, currentPage, onPageChange }: LayoutProps) {
   };
 
   return (
-    <div className={clsx("flex h-screen bg-gray-50 dark:bg-gray-900 transition-all duration-500", themeTransition && "animate-pulse")}>
+    <div className={clsx("app-content flex h-screen bg-gray-50 dark:bg-gray-900 transition-all duration-500", themeTransition && "animate-pulse")}>
 
       {/* Mobile menu button */}
       <div className="lg:hidden fixed top-4 left-4 z-50">
@@ -92,7 +92,7 @@ export function Layout({ children, currentPage, onPageChange }: LayoutProps) {
         "z-40 bg-gradient-to-b from-blue-600 to-blue-700 dark:from-gray-800 dark:to-gray-900 shadow-xl transform transition-all duration-300 ease-in-out h-screen flex flex-col",
         sidebarOpen ? "fixed inset-y-0 left-0" : "fixed inset-y-0 left-0 -translate-x-full",
         "lg:translate-x-0 lg:static",
-        sidebarCollapsed ? "lg:w-16" : "lg:w-60",
+        sidebarCollapsed ? "lg:w-16" : "lg:w-72",
         "w-64" // Always full width on mobile
       )}>
           {/* Header */}
