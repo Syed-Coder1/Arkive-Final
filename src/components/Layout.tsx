@@ -92,7 +92,7 @@ export function Layout({ children, currentPage, onPageChange }: LayoutProps) {
         "z-40 bg-gradient-to-b from-blue-600 to-blue-700 dark:from-gray-800 dark:to-gray-900 shadow-xl transform transition-all duration-300 ease-in-out h-screen flex flex-col",
         sidebarOpen ? "fixed inset-y-0 left-0" : "fixed inset-y-0 left-0 -translate-x-full",
         "lg:translate-x-0 lg:static",
-        sidebarCollapsed ? "lg:w-16" : "lg:w-52",
+        sidebarCollapsed ? "lg:w-16" : "lg:w-60",
         "w-64" // Always full width on mobile
       )}>
           {/* Header */}
@@ -214,8 +214,8 @@ export function Layout({ children, currentPage, onPageChange }: LayoutProps) {
       </div>
 
       {/* Content */}
-      <main className="flex-1 overflow-y-auto bg-gradient-to-br from-gray-50 via-blue-50/30 to-indigo-50/30 dark:from-gray-900 dark:via-blue-900/10 dark:to-indigo-900/10 ml-1">
-        <div className="p-3 md:p-4 max-w-7xl mx-auto">
+      <main className="flex-1 overflow-y-auto bg-gradient-to-br from-gray-50 via-blue-50/30 to-indigo-50/30 dark:from-gray-900 dark:via-blue-900/10 dark:to-indigo-900/10">
+        <div className="p-4 md:p-6 max-w-7xl mx-auto">
           {children}
         </div>
       </main>

@@ -846,7 +846,7 @@ export function EmployeeManagement() {
 
       {/* Employee Details Modal */}
       {showDetails && selectedEmployee && (
-        <div className="form-modal">
+        <div className="fixed inset-0 z-50 flex items-center justify-center p-4 backdrop-filter backdrop-blur-sm bg-black bg-opacity-70">
           <div className="bg-white dark:bg-gray-800 rounded-xl shadow-2xl w-full max-w-4xl max-h-[90vh] overflow-y-auto animate-slideInRight">
             <div className="p-6">
               <div className="flex items-center justify-between mb-6">

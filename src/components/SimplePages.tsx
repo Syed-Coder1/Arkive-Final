@@ -656,7 +656,7 @@ export function Expenses({ showForm: externalShowForm, onCloseForm }: ExpensesPr
 
       {/* Preview Modal */}
       {showPreview && selectedExpense && (
-        <div className="form-modal">
+        <div className="fixed inset-0 z-50 flex items-center justify-center p-4 backdrop-filter backdrop-blur-sm bg-black bg-opacity-70">
           <div className="bg-white dark:bg-gray-800 rounded-xl p-6 w-full max-w-md animate-slideInRight">
             <div className="flex items-center justify-between mb-4">
               <h2 className="text-xl font-bold text-gray-900 dark:text-white flex items-center gap-2">
