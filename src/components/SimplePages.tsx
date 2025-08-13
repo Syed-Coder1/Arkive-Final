@@ -296,7 +296,7 @@ export function Expenses({ showForm: externalShowForm, onCloseForm }: ExpensesPr
           <div className="flex items-center justify-between">
             <div>
               <p className="text-sm text-gray-600 dark:text-gray-400">Total Expenses</p>
-              <p className="text-2xl font-bold text-red-600">Rs. {totalExpenses.toLocaleString()}</p>
+              <p className="text-2xl font-bold text-red-600">PKR {totalExpenses.toLocaleString('en-PK')}</p>
             </div>
             <DollarSign className="w-8 h-8 text-red-500" />
           </div>
@@ -307,9 +307,9 @@ export function Expenses({ showForm: externalShowForm, onCloseForm }: ExpensesPr
             <div>
               <p className="text-sm text-gray-600 dark:text-gray-400">This Month</p>
               <p className="text-2xl font-bold text-orange-600">
-                Rs. {expenses.filter(e => 
+                PKR {expenses.filter(e => 
                   format(e.date, 'yyyy-MM') === format(new Date(), 'yyyy-MM')
-                ).reduce((sum, e) => sum + e.amount, 0).toLocaleString()}
+                ).reduce((sum, e) => sum + e.amount, 0).toLocaleString('en-PK')}
               </p>
             </div>
             <Calendar className="w-8 h-8 text-orange-500" />
@@ -320,7 +320,7 @@ export function Expenses({ showForm: externalShowForm, onCloseForm }: ExpensesPr
           <div className="flex items-center justify-between">
             <div>
               <p className="text-sm text-gray-600 dark:text-gray-400">Average</p>
-              <p className="text-2xl font-bold text-purple-600">Rs. {Math.round(avgExpense).toLocaleString()}</p>
+              <p className="text-2xl font-bold text-purple-600">PKR {Math.round(avgExpense).toLocaleString('en-PK')}</p>
             </div>
             <TrendingUp className="w-8 h-8 text-purple-500" />
           </div>
@@ -356,7 +356,7 @@ export function Expenses({ showForm: externalShowForm, onCloseForm }: ExpensesPr
                 tickFormatter={(value) => `${(value / 1000)}K`}
               />
               <Tooltip 
-                formatter={(value: number) => [`Rs. ${value.toLocaleString()}`, 'Amount']}
+                formatter={(value: number) => [`PKR ${value.toLocaleString('en-PK')}`, 'Amount']}
                 contentStyle={{ 
                   backgroundColor: '#ffffff',
                   border: '1px solid #e5e7eb',
@@ -391,7 +391,7 @@ export function Expenses({ showForm: externalShowForm, onCloseForm }: ExpensesPr
               </Pie>
               <Tooltip 
                 formatter={(value: number, name: string, props: any) => [
-                  `Rs. ${value.toLocaleString()} (${props.payload.percentage}%)`, 
+                  `PKR ${value.toLocaleString('en-PK')} (${props.payload.percentage}%)`, 
                   'Amount'
                 ]}
                 contentStyle={{ 
@@ -491,7 +491,7 @@ export function Expenses({ showForm: externalShowForm, onCloseForm }: ExpensesPr
                     </span>
                   </td>
                   <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-red-600 dark:text-red-400">
-                    Rs. {expense.amount.toLocaleString()}
+                    PKR {expense.amount.toLocaleString('en-PK')}
                   </td>
                   <td className="px-6 py-4 whitespace-nowrap text-sm font-medium">
                     <div className="flex space-x-2">
@@ -693,7 +693,7 @@ export function Expenses({ showForm: externalShowForm, onCloseForm }: ExpensesPr
               <div className="flex justify-between">
                 <span className="text-gray-600 dark:text-gray-400">Amount:</span>
                 <span className="font-bold text-red-600 dark:text-red-400">
-                  PKR {selectedExpense.amount.toLocaleString()}
+                  PKR {selectedExpense.amount.toLocaleString('en-PK')}
                 </span>
               </div>
               <div className="flex justify-between">

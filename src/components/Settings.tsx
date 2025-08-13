@@ -460,7 +460,7 @@ const Settings: React.FC = () => {
                     <Cloud className="w-5 h-5 text-blue-500" />
                     <div>
                       <p className="text-sm font-medium text-gray-900 dark:text-white">
-                        {syncStatus.lastSync ? format(syncStatus.lastSync, 'MMM dd, HH:mm') : 'Never'}
+                        {syncStatus.lastSync ? format(syncStatus.lastSync, 'MMM dd, hh:mm a') : 'Never'}
                       </p>
                       <p className="text-xs text-gray-500 dark:text-gray-400">
                         Last Sync
@@ -630,7 +630,7 @@ const Settings: React.FC = () => {
                           {format(new Date(u.createdAt), 'MMM dd, yyyy')}
                         </td>
                         <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-900 dark:text-white">
-                          {u.lastLogin ? format(new Date(u.lastLogin), 'MMM dd, yyyy HH:mm') : 'Never'}
+                          {u.lastLogin ? format(new Date(u.lastLogin), 'MMM dd, yyyy hh:mm a') : 'Never'}
                         </td>
                         <td className="px-6 py-4 whitespace-nowrap text-sm font-medium">
                           {u.id !== user?.id && (

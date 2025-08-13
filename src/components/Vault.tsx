@@ -306,7 +306,7 @@ export function Vault({ showUpload: externalShowUpload, onCloseUpload }: VaultPr
             <div>
               <p className="text-sm text-gray-600 dark:text-gray-400">Total Size</p>
               <p className="text-2xl font-bold text-gray-900 dark:text-white">
-                {(documents.reduce((sum, doc) => sum + doc.fileSize, 0) / (1024 * 1024)).toFixed(1)}MB
+                {(documents.reduce((sum, doc) => sum + doc.fileSize, 0) / (1024 * 1024)).toFixed(1)} MB
               </p>
             </div>
             <Shield className="w-8 h-8 text-green-500" />
@@ -717,7 +717,7 @@ export function Vault({ showUpload: externalShowUpload, onCloseUpload }: VaultPr
                     <div className="flex justify-between">
                       <span className="text-gray-500 dark:text-gray-400">Uploaded:</span>
                       <span className="text-gray-900 dark:text-white">
-                        {format(selectedDocument.uploadedAt, 'MMM dd, yyyy HH:mm')}
+                        {format(selectedDocument.uploadedAt, 'MMM dd, yyyy hh:mm a')}
                       </span>
                     </div>
                   </div>
@@ -745,7 +745,7 @@ export function Vault({ showUpload: externalShowUpload, onCloseUpload }: VaultPr
                   <div className="space-y-2 max-h-32 overflow-y-auto">
                     {selectedDocument.accessLog.slice(-5).reverse().map((log, index) => (
                       <div key={index} className="text-xs text-gray-600 dark:text-gray-400">
-                        <span className="capitalize">{log.action}</span> - {format(log.timestamp, 'MMM dd, HH:mm')}
+                        <span className="capitalize">{log.action}</span> - {format(log.timestamp, 'MMM dd, hh:mm a')}
                       </div>
                     ))}
                   </div>
