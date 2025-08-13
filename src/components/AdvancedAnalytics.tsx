@@ -235,13 +235,14 @@ export default function AdvancedAnalytics() {
       </div>
 
       {/* Charts Grid */}
-      <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+      <div className="grid grid-cols-1 xl:grid-cols-2 gap-10">
         {/* Revenue Trend */}
-        <div className="bg-white dark:bg-gray-800 rounded-xl p-6 shadow-sm border border-gray-100 dark:border-gray-700">
+        <div className="bg-white dark:bg-gray-800 rounded-xl p-8 shadow-sm border border-gray-100 dark:border-gray-700 min-h-[450px]">
           <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-4">
             Revenue & Expense Trend
           </h3>
           <ResponsiveContainer width="100%" height={300}>
+          <ResponsiveContainer width="100%" height={350}>
             <AreaChart data={monthlyData}>
               <CartesianGrid strokeDasharray="3 3" stroke="#e5e7eb" />
               <XAxis 
@@ -273,11 +274,12 @@ export default function AdvancedAnalytics() {
         </div>
 
         {/* Expense Breakdown */}
-        <div className="bg-white dark:bg-gray-800 rounded-xl p-6 shadow-sm border border-gray-100 dark:border-gray-700">
+        <div className="bg-white dark:bg-gray-800 rounded-xl p-8 shadow-sm border border-gray-100 dark:border-gray-700 min-h-[450px]">
           <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-4">
             Expense Categories
           </h3>
           <ResponsiveContainer width="100%" height={300}>
+          <ResponsiveContainer width="100%" height={350}>
             <PieChart>
               <Pie
                 data={expenseBreakdown}
@@ -299,11 +301,12 @@ export default function AdvancedAnalytics() {
         </div>
 
         {/* Profit Trend */}
-        <div className="bg-white dark:bg-gray-800 rounded-xl p-6 shadow-sm border border-gray-100 dark:border-gray-700">
+        <div className="bg-white dark:bg-gray-800 rounded-xl p-8 shadow-sm border border-gray-100 dark:border-gray-700 min-h-[450px]">
           <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-4">
             Monthly Profit Analysis
           </h3>
           <ResponsiveContainer width="100%" height={300}>
+          <ResponsiveContainer width="100%" height={350}>
             <LineChart data={monthlyData}>
               <CartesianGrid strokeDasharray="3 3" stroke="#e5e7eb" />
               <XAxis 
@@ -337,11 +340,12 @@ export default function AdvancedAnalytics() {
         </div>
 
         {/* Client Performance */}
-        <div className="bg-white dark:bg-gray-800 rounded-xl p-6 shadow-sm border border-gray-100 dark:border-gray-700">
+        <div className="bg-white dark:bg-gray-800 rounded-xl p-8 shadow-sm border border-gray-100 dark:border-gray-700 min-h-[450px]">
           <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-4">
             Top Clients by Revenue
           </h3>
           <ResponsiveContainer width="100%" height={300}>
+          <ResponsiveContainer width="100%" height={350}>
             <BarChart data={clientPerformance.slice(0, 8)} layout="horizontal">
               <CartesianGrid strokeDasharray="3 3" stroke="#e5e7eb" />
               <XAxis 
@@ -372,9 +376,9 @@ export default function AdvancedAnalytics() {
       </div>
 
       {/* Detailed Tables */}
-      <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+      <div className="grid grid-cols-1 xl:grid-cols-2 gap-10">
         {/* Monthly Performance Table */}
-        <div className="bg-white dark:bg-gray-800 rounded-xl p-6 shadow-sm border border-gray-100 dark:border-gray-700">
+        <div className="bg-white dark:bg-gray-800 rounded-xl p-8 shadow-sm border border-gray-100 dark:border-gray-700 min-h-[400px]">
           <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-4">
             Monthly Performance Summary
           </h3>
@@ -415,7 +419,7 @@ export default function AdvancedAnalytics() {
         </div>
 
         {/* Top Clients Table */}
-        <div className="bg-white dark:bg-gray-800 rounded-xl p-6 shadow-sm border border-gray-100 dark:border-gray-700">
+        <div className="bg-white dark:bg-gray-800 rounded-xl p-8 shadow-sm border border-gray-100 dark:border-gray-700 min-h-[400px]">
           <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-4">
             Top Performing Clients
           </h3>

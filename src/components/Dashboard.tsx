@@ -278,10 +278,10 @@ export function Dashboard({ onPageChange, onOpenForm }: DashboardProps) {
       </div>
 
       {/* Key Metrics Cards */}
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
         <div 
           onClick={() => onPageChange('receipts')}
-          className="bg-gradient-to-br from-blue-500 via-blue-600 to-indigo-600 text-white rounded-3xl p-6 shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-300 cursor-pointer group"
+          className="bg-gradient-to-br from-blue-500 via-blue-600 to-indigo-600 text-white rounded-3xl p-8 shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-300 cursor-pointer group min-h-[180px]"
         >
           <div className="flex items-center justify-between">
             <div>
@@ -301,7 +301,7 @@ export function Dashboard({ onPageChange, onOpenForm }: DashboardProps) {
 
         <div 
           onClick={() => onPageChange('expenses')}
-          className="bg-gradient-to-br from-red-500 via-red-600 to-pink-600 text-white rounded-3xl p-6 shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-300 cursor-pointer group"
+          className="bg-gradient-to-br from-red-500 via-red-600 to-pink-600 text-white rounded-3xl p-8 shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-300 cursor-pointer group min-h-[180px]"
         >
           <div className="flex items-center justify-between">
             <div>
@@ -321,7 +321,7 @@ export function Dashboard({ onPageChange, onOpenForm }: DashboardProps) {
 
         <div 
           onClick={() => onPageChange('clients')}
-          className="bg-gradient-to-br from-green-500 via-green-600 to-emerald-600 text-white rounded-3xl p-6 shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-300 cursor-pointer group"
+          className="bg-gradient-to-br from-green-500 via-green-600 to-emerald-600 text-white rounded-3xl p-8 shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-300 cursor-pointer group min-h-[180px]"
         >
           <div className="flex items-center justify-between">
             <div>
@@ -341,7 +341,7 @@ export function Dashboard({ onPageChange, onOpenForm }: DashboardProps) {
 
         <div 
           onClick={() => onPageChange('employees')}
-          className="bg-gradient-to-br from-purple-500 via-purple-600 to-violet-600 text-white rounded-3xl p-6 shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-300 cursor-pointer group"
+          className="bg-gradient-to-br from-purple-500 via-purple-600 to-violet-600 text-white rounded-3xl p-8 shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-300 cursor-pointer group min-h-[180px]"
         >
           <div className="flex items-center justify-between">
             <div>
@@ -361,7 +361,7 @@ export function Dashboard({ onPageChange, onOpenForm }: DashboardProps) {
       </div>
 
       {/* Secondary Stats */}
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-10">
         <div className="premium-card glass-card rounded-3xl p-8 shadow-premium-lg hover-lift stagger-item">
           <div className="flex items-center justify-between mb-4">
             <h3 className="text-2xl font-bold text-gray-900 dark:text-white">Net Profit</h3>
@@ -414,7 +414,7 @@ export function Dashboard({ onPageChange, onOpenForm }: DashboardProps) {
       </div>
 
       {/* Charts Section */}
-      <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+      <div className="grid grid-cols-1 xl:grid-cols-2 gap-10">
         {/* Revenue Trend */}
         <div className="chart-container stagger-item">
           <h3 className="text-2xl font-bold text-gray-900 dark:text-white mb-8 flex items-center gap-3">
@@ -422,6 +422,7 @@ export function Dashboard({ onPageChange, onOpenForm }: DashboardProps) {
             6-Month Revenue Trend
           </h3>
           <ResponsiveContainer width="100%" height={320}>
+          <ResponsiveContainer width="100%" height={400}>
             <BarChart data={monthlyTrend}>
               <CartesianGrid strokeDasharray="3 3" stroke="#e5e7eb" className="opacity-50" />
               <XAxis 
@@ -471,6 +472,7 @@ export function Dashboard({ onPageChange, onOpenForm }: DashboardProps) {
             Profit Analysis
           </h3>
           <ResponsiveContainer width="100%" height={320}>
+          <ResponsiveContainer width="100%" height={400}>
             <LineChart data={monthlyTrend}>
               <CartesianGrid strokeDasharray="3 3" stroke="#e5e7eb" className="opacity-50" />
               <XAxis 
@@ -520,6 +522,7 @@ export function Dashboard({ onPageChange, onOpenForm }: DashboardProps) {
           Quick Actions
         </h3>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-10">
           <button
             onClick={() => onOpenForm('receipt')}
             className="flex items-center gap-4 p-8 bg-gradient-to-br from-blue-50 via-blue-100 to-indigo-100 dark:from-blue-900/30 dark:via-blue-800/30 dark:to-indigo-800/30 rounded-3xl hover:from-blue-100 hover:via-blue-200 hover:to-indigo-200 dark:hover:from-blue-800/40 dark:hover:via-blue-700/40 dark:hover:to-indigo-700/40 transition-all duration-500 group border-3 border-blue-200 dark:border-blue-700 hover:border-blue-300 dark:hover:border-blue-600 hover:scale-105 hover:shadow-2xl"
@@ -575,7 +578,7 @@ export function Dashboard({ onPageChange, onOpenForm }: DashboardProps) {
       </div>
 
       {/* Recent Activity & System Status */}
-      <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+      <div className="grid grid-cols-1 xl:grid-cols-2 gap-10">
         {/* Recent Receipts */}
         <div className="glass-card rounded-3xl p-8 shadow-premium-lg stagger-item">
           <div className="flex items-center justify-between mb-6">
@@ -718,6 +721,7 @@ export function Dashboard({ onPageChange, onOpenForm }: DashboardProps) {
         </div>
         
         <div className="grid grid-cols-1 md:grid-cols-3 gap-10">
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-12">
           <div className="bg-white/15 backdrop-blur-sm rounded-3xl p-8 border-2 border-white/30 hover:bg-white/20 transition-all duration-300 hover:scale-105">
             <p className="text-indigo-100 text-base mb-3 font-bold uppercase tracking-wider">Average Receipt Value</p>
             <p className="text-4xl font-bold text-shadow-lg">
