@@ -215,7 +215,7 @@ export function Layout({ children, currentPage, onPageChange }: LayoutProps) {
 
       {/* Content */}
       <main className="flex-1 overflow-y-auto bg-gradient-to-br from-gray-50 via-blue-50/30 to-indigo-50/30 dark:from-gray-900 dark:via-blue-900/10 dark:to-indigo-900/10 h-full">
-        <div className="p-4 md:p-6 max-w-7xl mx-auto">
+        <div className="p-4 md:p-6 max-w-7xl ml-6 mr-auto">
           {children}
         </div>
       </main>
