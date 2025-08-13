@@ -140,7 +140,7 @@ const Dashboard: React.FC<DashboardProps> = ({ onPageChange, onOpenForm }) => {
 
       {/* Main Stats Cards */}
       <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-8">
-        <div className="dashboard-metric-card bg-gradient-to-br from-blue-500 to-blue-600 text-white p-8 rounded-2xl shadow-xl hover:shadow-2xl transition-all duration-300 min-h-[200px] stagger-item">
+        <div className="bg-gradient-to-br from-blue-500 to-blue-600 text-white p-8 rounded-2xl shadow-xl hover:shadow-2xl transition-all duration-300 min-h-[200px] stagger-item hover:scale-105">
           <div className="flex items-center justify-between mb-4">
             <div className="p-3 bg-white/20 rounded-xl">
               <DollarSign size={32} className="text-white" />
@@ -154,7 +154,7 @@ const Dashboard: React.FC<DashboardProps> = ({ onPageChange, onOpenForm }) => {
           </div>
           <div>
             <p className="text-blue-100 text-lg font-medium">TOTAL REVENUE</p>
-            <p className="text-4xl font-bold mt-2">PKR {totalRevenue.toLocaleString()}</p>
+            <p className="text-4xl font-bold mt-2">PKR {totalRevenue.toLocaleString('en-PK')}</p>
             <p className="text-blue-100 text-base mt-2">{receipts.length} receipts</p>
             <button 
               onClick={() => onPageChange('receipts')}
@@ -166,7 +166,7 @@ const Dashboard: React.FC<DashboardProps> = ({ onPageChange, onOpenForm }) => {
           </div>
         </div>
 
-        <div className="dashboard-metric-card bg-gradient-to-br from-red-500 to-red-600 text-white p-8 rounded-2xl shadow-xl hover:shadow-2xl transition-all duration-300 min-h-[200px] stagger-item">
+        <div className="bg-gradient-to-br from-red-500 to-red-600 text-white p-8 rounded-2xl shadow-xl hover:shadow-2xl transition-all duration-300 min-h-[200px] stagger-item hover:scale-105">
           <div className="flex items-center justify-between mb-4">
             <div className="p-3 bg-white/20 rounded-xl">
               <CreditCard size={32} className="text-white" />
@@ -174,7 +174,7 @@ const Dashboard: React.FC<DashboardProps> = ({ onPageChange, onOpenForm }) => {
           </div>
           <div>
             <p className="text-red-100 text-lg font-medium">TOTAL EXPENSES</p>
-            <p className="text-4xl font-bold mt-2">PKR {totalExpenses.toLocaleString()}</p>
+            <p className="text-4xl font-bold mt-2">PKR {totalExpenses.toLocaleString('en-PK')}</p>
             <p className="text-red-100 text-base mt-2">{expenses.length} entries</p>
             <button 
               onClick={() => onPageChange('expenses')}
@@ -186,7 +186,7 @@ const Dashboard: React.FC<DashboardProps> = ({ onPageChange, onOpenForm }) => {
           </div>
         </div>
 
-        <div className="dashboard-metric-card bg-gradient-to-br from-green-500 to-green-600 text-white p-8 rounded-2xl shadow-xl hover:shadow-2xl transition-all duration-300 min-h-[200px] stagger-item">
+        <div className="bg-gradient-to-br from-green-500 to-green-600 text-white p-8 rounded-2xl shadow-xl hover:shadow-2xl transition-all duration-300 min-h-[200px] stagger-item hover:scale-105">
           <div className="flex items-center justify-between mb-4">
             <div className="p-3 bg-white/20 rounded-xl">
               <Users size={32} className="text-white" />
@@ -206,7 +206,7 @@ const Dashboard: React.FC<DashboardProps> = ({ onPageChange, onOpenForm }) => {
           </div>
         </div>
 
-        <div className="dashboard-metric-card bg-gradient-to-br from-purple-500 to-purple-600 text-white p-8 rounded-2xl shadow-xl hover:shadow-2xl transition-all duration-300 min-h-[200px] stagger-item">
+        <div className="bg-gradient-to-br from-purple-500 to-purple-600 text-white p-8 rounded-2xl shadow-xl hover:shadow-2xl transition-all duration-300 min-h-[200px] stagger-item hover:scale-105">
           <div className="flex items-center justify-between mb-4">
             <div className="p-3 bg-white/20 rounded-xl">
               <Activity size={32} className="text-white" />
@@ -232,7 +232,7 @@ const Dashboard: React.FC<DashboardProps> = ({ onPageChange, onOpenForm }) => {
         <div className="flex items-center justify-between">
           <div>
             <h3 className="text-2xl font-bold mb-2">Net Profit</h3>
-            <p className="text-5xl font-bold mb-3">PKR {netProfit.toLocaleString()}</p>
+            <p className="text-5xl font-bold mb-3">PKR {netProfit.toLocaleString('en-PK')}</p>
             <p className="text-green-100 text-lg">
               Profit Margin: {totalRevenue > 0 ? ((netProfit / totalRevenue) * 100).toFixed(1) : 0}%
             </p>
@@ -266,7 +266,7 @@ const Dashboard: React.FC<DashboardProps> = ({ onPageChange, onOpenForm }) => {
               />
               <Tooltip 
                 formatter={(value: number, name: string) => [
-                  `PKR ${value.toLocaleString()}`, 
+                  `PKR ${value.toLocaleString('en-PK')}`, 
                   name === 'revenue' ? 'Revenue' : name === 'expense' ? 'Expenses' : 'Profit'
                 ]}
                 contentStyle={{ 
@@ -309,7 +309,7 @@ const Dashboard: React.FC<DashboardProps> = ({ onPageChange, onOpenForm }) => {
                 </Pie>
                 <Tooltip 
                   formatter={(value: number, name: string, props: any) => [
-                    `PKR ${value.toLocaleString()} (${props.payload.percentage}%)`, 
+                    `PKR ${value.toLocaleString('en-PK')} (${props.payload.percentage}%)`, 
                     'Amount'
                   ]}
                   contentStyle={{ 
@@ -427,13 +427,13 @@ const Dashboard: React.FC<DashboardProps> = ({ onPageChange, onOpenForm }) => {
                   <div>
                     <p className="font-semibold text-gray-900 dark:text-white">{receipt.clientName}</p>
                     <p className="text-sm text-gray-600 dark:text-gray-400">
-                      {format(receipt.date, 'MMM dd, yyyy')}
+                      {format(receipt.date, 'MMM dd, yyyy - hh:mm a')}
                     </p>
                   </div>
                 </div>
                 <div className="text-right">
                   <p className="font-bold text-green-600 dark:text-green-400 text-lg">
-                    PKR {receipt.amount.toLocaleString()}
+                    PKR {receipt.amount.toLocaleString('en-PK')}
                   </p>
                   <p className="text-xs text-gray-500 dark:text-gray-400 capitalize">
                     {receipt.paymentMethod.replace('_', ' ')}
@@ -503,7 +503,7 @@ const Dashboard: React.FC<DashboardProps> = ({ onPageChange, onOpenForm }) => {
                   <span className="font-medium text-gray-900 dark:text-white">Last Sync</span>
                 </div>
                 <span className="text-blue-600 dark:text-blue-400 text-sm font-semibold">
-                  {format(new Date(), 'HH:mm')}
+                  {format(new Date(), 'hh:mm a')}
                 </span>
               </div>
               
@@ -523,13 +523,13 @@ const Dashboard: React.FC<DashboardProps> = ({ onPageChange, onOpenForm }) => {
                 <div className="flex justify-between">
                   <span className="text-gray-600 dark:text-gray-400">Average Receipt:</span>
                   <span className="font-bold text-gray-900 dark:text-white">
-                    PKR {receipts.length > 0 ? Math.round(totalRevenue / receipts.length).toLocaleString() : 0}
+                    PKR {receipts.length > 0 ? Math.round(totalRevenue / receipts.length).toLocaleString('en-PK') : 0}
                   </span>
                 </div>
                 <div className="flex justify-between">
                   <span className="text-gray-600 dark:text-gray-400">Monthly Revenue:</span>
                   <span className="font-bold text-green-600 dark:text-green-400">
-                    PKR {thisMonth.toLocaleString()}
+                    PKR {thisMonth.toLocaleString('en-PK')}
                   </span>
                 </div>
                 <div className="flex justify-between">
