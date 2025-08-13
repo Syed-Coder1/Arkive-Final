@@ -75,7 +75,7 @@ export function Layout({ children, currentPage, onPageChange }: LayoutProps) {
   };
 
   return (
-    <div className={clsx("app-content flex h-screen bg-gray-50 dark:bg-gray-900 transition-all duration-500", themeTransition && "animate-pulse")}>
+    <div className={clsx("app-content h-screen bg-gray-50 dark:bg-gray-900 transition-all duration-500", themeTransition && "animate-pulse")}>
 
       {/* Mobile menu button */}
       <div className="lg:hidden fixed top-4 left-4 z-50">
@@ -89,14 +89,14 @@ export function Layout({ children, currentPage, onPageChange }: LayoutProps) {
 
       {/* Sidebar */}
       <div className={clsx(
-        "z-40 bg-gradient-to-b from-blue-600 to-blue-700 dark:from-gray-800 dark:to-gray-900 shadow-xl transform transition-all duration-300 ease-in-out h-full flex flex-col fixed inset-y-0",
+        "z-40 bg-gradient-to-b from-blue-600 to-blue-700 dark:from-gray-800 dark:to-gray-900 shadow-xl transform transition-all duration-300 ease-in-out h-screen flex flex-col fixed inset-y-0 left-0",
         sidebarOpen ? "fixed inset-y-0 left-0" : "fixed inset-y-0 left-0 -translate-x-full",
         "lg:translate-x-0 lg:static",
-        sidebarCollapsed ? "lg:w-16" : "lg:w-72",
+        sidebarCollapsed ? "lg:w-20" : "lg:w-72",
         "w-64" // Always full width on mobile
       )}>
           {/* Header */}
-          <div className={clsx("border-b border-blue-500/20 dark:border-gray-700/50", sidebarCollapsed ? "p-4" : "p-6")}>
+          <div className={clsx("border-b border-blue-500/20 dark:border-gray-700/50", sidebarCollapsed ? "p-3" : "p-6")}>
             <div className="flex items-center justify-between">
               {!sidebarCollapsed && (
                 <div className="flex items-center">
@@ -110,9 +110,9 @@ export function Layout({ children, currentPage, onPageChange }: LayoutProps) {
                 </div>
               )}
               {sidebarCollapsed && (
-                <div className="flex items-center justify-center w-full">
-                  <div className="w-10 h-10 bg-gradient-to-br from-white to-blue-50 rounded-xl flex items-center justify-center shadow-lg">
-                    <Shield className="w-6 h-6 text-blue-600" />
+                <div className="flex items-center justify-center w-full mx-auto">
+                  <div className="w-12 h-12 bg-gradient-to-br from-white to-blue-50 rounded-xl flex items-center justify-center shadow-lg">
+                    <Shield className="w-7 h-7 text-blue-600" />
                   </div>
                 </div>
               )}
@@ -140,20 +140,20 @@ export function Layout({ children, currentPage, onPageChange }: LayoutProps) {
                   }}
                   className={clsx(
                     "w-full flex items-center text-left rounded-2xl transition-all duration-300 sidebar-item-premium",
-                    sidebarCollapsed ? "px-3 py-3 justify-center" : "px-4 py-3",
+                    sidebarCollapsed ? "px-2 py-4 justify-center" : "px-4 py-3",
                     currentPage === item.id
                       ? "bg-white/20 text-white shadow-xl backdrop-blur-sm border border-white/20 scale-105"
                       : "text-blue-100 hover:bg-white/15 hover:text-white hover:scale-102"
                   )}
                   title={sidebarCollapsed ? item.label : undefined}
                 >
-                  <Icon size={22} className={clsx(
-                    "transition-all duration-200",
-                    sidebarCollapsed ? "mx-auto" : "mr-2",
+                  <Icon size={sidebarCollapsed ? 24 : 22} className={clsx(
+                    "transition-all duration-200 flex-shrink-0",
+                    sidebarCollapsed ? "mx-auto" : "mr-3",
                     currentPage === item.id ? "text-white drop-shadow-sm" : ""
                   )} />
                   {!sidebarCollapsed && (
-                    <span className="transition-all duration-200 font-medium text-base">{item.label}</span>
+                    <span className="transition-all duration-200 font-medium text-base whitespace-nowrap">{item.label}</span>
                   )}
                 </button>
               );
@@ -161,31 +161,31 @@ export function Layout({ children, currentPage, onPageChange }: LayoutProps) {
           </nav>
 
           {/* Footer */}
-          <div className={clsx("border-t border-blue-500/30 dark:border-gray-700/50 mt-auto backdrop-blur-sm", sidebarCollapsed ? "p-3" : "p-4")}>
+          <div className={clsx("border-t border-blue-500/30 dark:border-gray-700/50 mt-auto backdrop-blur-sm", sidebarCollapsed ? "p-2" : "p-4")}>
             {/* Action Buttons - Moved above user info */}
-            <div className={clsx("mb-4", sidebarCollapsed ? "flex flex-col items-center space-y-3" : "flex items-center justify-between")}>
+            <div className={clsx("mb-4", sidebarCollapsed ? "flex flex-col items-center space-y-2" : "flex items-center justify-between")}>
               <button
                 onClick={toggleDarkMode}
-                className="p-3 rounded-xl bg-white/15 hover:bg-white/25 transition-all duration-300 hover:scale-110 backdrop-blur-sm border border-white/20"
+                className={clsx("rounded-xl bg-white/15 hover:bg-white/25 transition-all duration-300 hover:scale-110 backdrop-blur-sm border border-white/20", sidebarCollapsed ? "p-2" : "p-3")}
                 title="Toggle Dark Mode"
               >
                 <div className={clsx("transition-all duration-300", themeTransition && "animate-spin")}>
-                  {darkMode ? <Sun size={20} className="text-yellow-300" /> : <Moon size={20} className="text-blue-100" />}
+                  {darkMode ? <Sun size={sidebarCollapsed ? 18 : 20} className="text-yellow-300" /> : <Moon size={sidebarCollapsed ? 18 : 20} className="text-blue-100" />}
                 </div>
               </button>
               <button
                 onClick={() => onPageChange('settings')}
-                className="p-3 text-blue-100 hover:text-white transition-all duration-300 rounded-xl hover:bg-white/15 hover:scale-110 backdrop-blur-sm border border-white/20"
+                className={clsx("text-blue-100 hover:text-white transition-all duration-300 rounded-xl hover:bg-white/15 hover:scale-110 backdrop-blur-sm border border-white/20", sidebarCollapsed ? "p-2" : "p-3")}
                 title="Settings"
               >
-                <Settings size={20} />
+                <Settings size={sidebarCollapsed ? 18 : 20} />
               </button>
               <button
                 onClick={handleLogout}
-                className="p-3 text-blue-100 hover:text-red-300 transition-all duration-300 rounded-xl hover:bg-red-500/30 hover:scale-110 backdrop-blur-sm border border-white/20"
+                className={clsx("text-blue-100 hover:text-red-300 transition-all duration-300 rounded-xl hover:bg-red-500/30 hover:scale-110 backdrop-blur-sm border border-white/20", sidebarCollapsed ? "p-2" : "p-3")}
                 title="Logout"
               >
-                <LogOut size={20} />
+                <LogOut size={sidebarCollapsed ? 18 : 20} />
               </button>
             </div>
             
@@ -205,8 +205,8 @@ export function Layout({ children, currentPage, onPageChange }: LayoutProps) {
             ) : (
               /* User info for collapsed sidebar */
               <div className="text-center">
-                <div className="w-8 h-8 bg-gradient-to-br from-blue-500 to-purple-600 rounded-full flex items-center justify-center mx-auto">
-                  <User className="w-4 h-4 text-white" />
+                <div className="w-10 h-10 bg-gradient-to-br from-blue-500 to-purple-600 rounded-full flex items-center justify-center mx-auto">
+                  <User className="w-5 h-5 text-white" />
                 </div>
               </div>
             )}
@@ -214,8 +214,11 @@ export function Layout({ children, currentPage, onPageChange }: LayoutProps) {
       </div>
 
       {/* Content */}
-      <main className="flex-1 overflow-y-auto bg-gradient-to-br from-gray-50 via-blue-50/30 to-indigo-50/30 dark:from-gray-900 dark:via-blue-900/10 dark:to-indigo-900/10 ml-0">
-        <div className="p-4 md:p-6 max-w-7xl mx-auto">
+      <main className={clsx(
+        "overflow-y-auto bg-gradient-to-br from-gray-50 via-blue-50/30 to-indigo-50/30 dark:from-gray-900 dark:via-blue-900/10 dark:to-indigo-900/10 h-screen transition-all duration-300",
+        sidebarCollapsed ? "lg:ml-20" : "lg:ml-72"
+      )}>
+        <div className="p-4 md:p-6 max-w-7xl mx-auto h-full">
           {children}
         </div>
       </main>
