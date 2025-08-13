@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { AuthProvider, useAuth } from './contexts/AuthContext';
 import Login from './components/Login';
 import { Layout } from './components/Layout';
-import { Dashboard } from './components/Dashboard';
+import Dashboard from './components/Dashboard';
 import ReceiptForm from './components/Receipts';
 import { Clients } from './components/Clients';
 import { Vault } from './components/Vault';
