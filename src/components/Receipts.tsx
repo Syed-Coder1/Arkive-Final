@@ -492,7 +492,7 @@ export default function Receipts({ showForm: externalShowForm, onCloseForm }: Re
                     {receipt.clientCnic}
                   </td>
                   <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-green-600 dark:text-green-400">
-                    PKR {(receipt.amount || 0).toLocaleString()}
+                    Rs. {(receipt.amount || 0).toLocaleString()}
                   </td>
                   <td className="px-6 py-4 whitespace-nowrap">
                     <span className="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-blue-100 dark:bg-blue-900 text-blue-800 dark:text-blue-200 capitalize">
