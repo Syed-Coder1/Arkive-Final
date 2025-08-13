@@ -553,8 +553,9 @@ export default function Receipts({ showForm: externalShowForm, onCloseForm }: Re
 
       {/* Receipt Form Modal */}
       {showForm && (
-        <div className="form-modal">
-          <div className="form-container animate-slideInRight">
+  <div className="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-50">
+    <div className="form-container animate-slideInRight bg-white dark:bg-gray-800 rounded-xl shadow-lg p-6 max-h-[90vh] overflow-y-auto">
+
             <h2 className="text-xl font-bold mb-4 text-gray-900 dark:text-white flex items-center gap-2">
               <ReceiptIcon className="w-5 h-5" />
               {editingReceipt ? 'Edit Receipt' : 'New Receipt'}
