@@ -349,7 +349,7 @@ export default function Receipts({ showForm: externalShowForm, onCloseForm }: Re
             Receipts Management
           </h1>
           <p className="text-gray-600 dark:text-gray-400 mt-1">
-            Total Revenue: Rs. {totalRevenue.toLocaleString()} • {receipts.length} receipts
+            Total Revenue: PKR {totalRevenue.toLocaleString('en-PK')} • {receipts.length} receipts
           </p>
         </div>
         <div className="flex gap-2">
@@ -399,7 +399,7 @@ export default function Receipts({ showForm: externalShowForm, onCloseForm }: Re
             <div>
               <p className="text-sm text-gray-600 dark:text-gray-400">Avg Amount</p>
               <p className="text-2xl font-bold text-purple-600">
-                Rs. {receipts.length > 0 ? Math.round(totalRevenue / receipts.length).toLocaleString() : 0}
+                PKR {receipts.length > 0 ? Math.round(totalRevenue / receipts.length).toLocaleString('en-PK') : 0}
               </p>
             </div>
             <ReceiptIcon className="w-8 h-8 text-purple-500" />
@@ -492,7 +492,7 @@ export default function Receipts({ showForm: externalShowForm, onCloseForm }: Re
                     {receipt.clientCnic}
                   </td>
                   <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-green-600 dark:text-green-400">
-                    Rs. {(receipt.amount || 0).toLocaleString()}
+                    PKR {(receipt.amount || 0).toLocaleString('en-PK')}
                   </td>
                   <td className="px-6 py-4 whitespace-nowrap">
                     <span className="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-blue-100 dark:bg-blue-900 text-blue-800 dark:text-blue-200 capitalize">
@@ -727,7 +727,7 @@ export default function Receipts({ showForm: externalShowForm, onCloseForm }: Re
               <div className="flex justify-between">
                 <span className="text-gray-600 dark:text-gray-400">Amount:</span>
                 <span className="font-bold text-green-600 dark:text-green-400">
-                  Rs. {(selectedReceipt.amount || 0).toLocaleString()}
+                  PKR {(selectedReceipt.amount || 0).toLocaleString('en-PK')}
                 </span>
               </div>
               <div className="flex justify-between">
