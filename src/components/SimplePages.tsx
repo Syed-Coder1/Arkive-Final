@@ -693,7 +693,7 @@ export function Expenses({ showForm: externalShowForm, onCloseForm }: ExpensesPr
               <div className="flex justify-between">
                 <span className="text-gray-600 dark:text-gray-400">Amount:</span>
                 <span className="font-bold text-red-600 dark:text-red-400">
-                  Rs. {selectedExpense.amount.toLocaleString()}
+                  PKR {selectedExpense.amount.toLocaleString()}
                 </span>
               </div>
               <div className="flex justify-between">

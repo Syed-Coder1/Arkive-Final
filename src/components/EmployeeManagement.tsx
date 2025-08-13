@@ -204,7 +204,7 @@ const EmployeeManagement: React.FC = () => {
                     <div className="text-sm text-gray-900">{employee.phone}</div>
                   </td>
                   <td className="px-6 py-4 whitespace-nowrap">
-                    <div className="text-sm font-medium text-gray-900">₹{employee.salary.toLocaleString()}</div>
+                    <div className="text-sm font-medium text-gray-900 dark:text-white">PKR {employee.salary.toLocaleString()}</div>
                   </td>
                   <td className="px-6 py-4 whitespace-nowrap">
                     <div className="text-sm text-gray-900">{new Date(employee.joinDate).toLocaleDateString()}</div>

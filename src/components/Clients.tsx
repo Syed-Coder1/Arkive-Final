@@ -854,7 +854,7 @@ export function Clients({ showForm: externalShowForm, onCloseForm }: ClientsProp
                               </div>
                               <div className="flex-1">
                                 <p className="text-sm font-medium text-gray-900 dark:text-white">
-                                  Payment Received - Rs. {receipt.amount.toLocaleString()}
+                                  Payment Received - PKR {receipt.amount.toLocaleString()}
                                 </p>
                                 <p className="text-xs text-gray-500 dark:text-gray-400">
                                   {format(receipt.createdAt instanceof Date ? receipt.createdAt : new Date(receipt.createdAt), 'MMM dd, yyyy HH:mm')} • {receipt.paymentMethod.replace('_', ' ')}

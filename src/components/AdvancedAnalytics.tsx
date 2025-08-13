@@ -65,7 +65,7 @@ const AdvancedAnalytics: React.FC = () => {
           <div className="flex items-center justify-between">
             <div>
               <p className="text-orange-100 text-base">Avg. Project Value</p>
-              <p className="text-3xl font-bold mt-2">₹25,846</p>
+              <p className="text-3xl font-bold mt-2">PKR 25,846</p>
               <p className="text-orange-100 text-sm mt-1">+8% from last month</p>
             </div>
             <Calendar size={32} className="text-orange-200" />
