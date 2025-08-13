@@ -1,10 +1,17 @@
 import React, { useState } from 'react';
-import { Eye, EyeOff, User, Lock, Building2 } from 'lucide-react';
+import { Eye, EyeOff, User, Lock, Building2, Moon, Sun } from 'lucide-react';
 import { useAuth } from '../contexts/AuthContext';
 
 export default function Login() {
   const [isLogin, setIsLogin] = useState(true);
   const [showPassword, setShowPassword] = useState(false);
+  const [darkMode, setDarkMode] = useState(() => {
+    if (typeof window !== 'undefined') {
+      return localStorage.getItem('darkMode') === 'true' ||
+        (!localStorage.getItem('darkMode') && window.matchMedia('(prefers-color-scheme: dark)').matches);
+    }
+    return false;
+  });
   const [formData, setFormData] = useState({
     username: '',
     password: '',
@@ -16,6 +23,18 @@ export default function Login() {
 
   const { login, signup } = useAuth();
 
+  React.useEffect(() => {
+    if (darkMode) {
+      document.documentElement.classList.add('dark');
+    } else {
+      document.documentElement.classList.remove('dark');
+    }
+    localStorage.setItem('darkMode', darkMode.toString());
+  }, [darkMode]);
+
+  const toggleDarkMode = () => {
+    setDarkMode(!darkMode);
+  };
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setError('');
@@ -49,6 +68,17 @@ export default function Login() {
 
   return (
     <div className="login-page h-screen overflow-hidden bg-gradient-to-br from-blue-50 to-indigo-100 dark:from-gray-900 dark:to-gray-800">
+      {/* Dark Mode Toggle */}
+      <div className="absolute top-6 right-6 z-10">
+        <button
+          onClick={toggleDarkMode}
+          className="p-3 rounded-xl bg-white/20 dark:bg-gray-800/50 backdrop-blur-sm border border-white/30 dark:border-gray-700/50 text-gray-700 dark:text-gray-300 hover:bg-white/30 dark:hover:bg-gray-700/50 transition-all duration-300 hover:scale-110"
+          title="Toggle Dark Mode"
+        >
+          {darkMode ? <Sun className="w-5 h-5" /> : <Moon className="w-5 h-5" />}
+        </button>
+      </div>
+
       <div className="h-full grid grid-cols-2">
         {/* Left side - Branding */}
         <div className="flex items-center justify-center bg-gradient-to-br from-blue-600 to-indigo-700 text-white p-12">
