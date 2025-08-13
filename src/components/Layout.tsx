@@ -15,17 +15,17 @@ interface LayoutProps {
 }
 
 const menuItems = [
-  { id: 'dashboard', label: 'Dashboard', icon: Home },
-  { id: 'receipts', label: 'Receipts', icon: Receipt },
-  { id: 'clients', label: 'Clients', icon: Users },
-  { id: 'vault', label: 'Secure Vault', icon: Shield },
-  { id: 'expenses', label: 'Expenses', icon: CreditCard },
-  { id: 'employees', label: 'Employees', icon: Users },
-  { id: 'tax-calculator', label: 'Tax Calculator', icon: Calculator },
-  { id: 'analytics', label: 'Analytics', icon: TrendingUp },
-  { id: 'notifications', label: 'Notifications', icon: Bell },
-  { id: 'activity', label: 'Activity Log', icon: Activity },
-  { id: 'backup', label: 'Backup/Restore', icon: HardDrive },
+  { id: 'dashboard', label: 'Dashboard', icon: Home, number: '01' },
+  { id: 'receipts', label: 'Receipts', icon: Receipt, number: '02' },
+  { id: 'clients', label: 'Clients', icon: Users, number: '03' },
+  { id: 'vault', label: 'Secure Vault', icon: Shield, number: '04' },
+  { id: 'expenses', label: 'Expenses', icon: CreditCard, number: '05' },
+  { id: 'employees', label: 'Employees', icon: Users, number: '06' },
+  { id: 'tax-calculator', label: 'Tax Calculator', icon: Calculator, number: '07' },
+  { id: 'analytics', label: 'Analytics', icon: TrendingUp, number: '08' },
+  { id: 'notifications', label: 'Notifications', icon: Bell, number: '09' },
+  { id: 'activity', label: 'Activity Log', icon: Activity, number: '10' },
+  { id: 'backup', label: 'Backup/Restore', icon: HardDrive, number: '11' },
 ];
 
 export function Layout({ children, currentPage, onPageChange }: LayoutProps) {
@@ -153,7 +153,12 @@ export function Layout({ children, currentPage, onPageChange }: LayoutProps) {
                     currentPage === item.id ? "text-white drop-shadow-sm" : ""
                   )} />
                   {!sidebarCollapsed && (
-                    <span className="transition-all duration-200 font-medium text-base whitespace-nowrap">{item.label}</span>
+                    <div className="flex items-center gap-3 transition-all duration-200">
+                      <span className="text-xs font-bold bg-white/20 px-2 py-1 rounded-md min-w-[28px] text-center">
+                        {item.number}
+                      </span>
+                      <span className="font-medium text-base whitespace-nowrap">{item.label}</span>
+                    </div>
                   )}
                 </button>
               );
