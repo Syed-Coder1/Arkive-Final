@@ -73,7 +73,6 @@ export const TaxCalculator: React.FC = () => {
   // Derive showResults from calc and numericInput
   const showResults = calc && numericInput > 0;
   /* ---------- Helpers ---------- */
-  const fmt = (n: number) => `₨${n.toLocaleString('en-PK')}`;
   const fmt = (n: number) => `PKR ${n.toLocaleString('en-PK')}`;
   const iconMap: Record<string, React.ElementType> = {
     salary: Users,
