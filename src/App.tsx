@@ -8,7 +8,7 @@ import { Clients } from './components/Clients';
 import { Vault } from './components/Vault';
 import { Expenses, ActivityLog, BackupRestore } from './components/SimplePages';
 import Settings from './components/Settings';
-import { EmployeeManagement } from './components/EmployeeManagement';
+import EmployeeManagement from './components/EmployeeManagement';
 import { TaxCalculator } from './components/TaxCalculator';
 import AdvancedAnalytics from './components/AdvancedAnalytics';
 import { SmartNotifications } from './components/SmartNotifications';
