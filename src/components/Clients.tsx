@@ -728,7 +728,7 @@ export function Clients({ showForm: externalShowForm, onCloseForm }: ClientsProp
                         <div className="flex justify-between">
                           <span className="text-sm text-gray-500 dark:text-gray-400">Total Payments:</span>
                           <span className="font-bold text-green-600 dark:text-green-400">
-                            Rs. {clientReceipts.reduce((sum, r) => sum + r.amount, 0).toLocaleString()}
+                            PKR {clientReceipts.reduce((sum, r) => sum + r.amount, 0).toLocaleString('en-PK')}
                           </span>
                         </div>
                         <div className="flex justify-between">
@@ -740,7 +740,7 @@ export function Clients({ showForm: externalShowForm, onCloseForm }: ClientsProp
                         <div className="flex justify-between">
                           <span className="text-sm text-gray-500 dark:text-gray-400">Average Payment:</span>
                           <span className="font-medium text-gray-900 dark:text-white">
-                            Rs. {clientReceipts.length > 0 ? 
+                            PKR {clientReceipts.length > 0 ? 
                               Math.round(clientReceipts.reduce((sum, r) => sum + r.amount, 0) / clientReceipts.length).toLocaleString() 
                               : 0}
                           </span>
@@ -782,7 +782,7 @@ export function Clients({ showForm: externalShowForm, onCloseForm }: ClientsProp
                                     </div>
                                     <div>
                                       <p className="font-semibold text-gray-900 dark:text-white">
-                                        Rs. {receipt.amount.toLocaleString()}
+                                        PKR {receipt.amount.toLocaleString('en-PK')}
                                       </p>
                                       <p className="text-sm text-gray-500 dark:text-gray-400">
                                         {format(receipt.date instanceof Date ? receipt.date : new Date(receipt.date), 'MMM dd, yyyy')}
@@ -802,7 +802,7 @@ export function Clients({ showForm: externalShowForm, onCloseForm }: ClientsProp
                                 )}
                                 <div className="mt-2 pl-13">
                                   <p className="text-xs text-gray-500 dark:text-gray-500">
-                                    Receipt ID: {receipt.id} • Created: {format(receipt.createdAt instanceof Date ? receipt.createdAt : new Date(receipt.createdAt), 'MMM dd, HH:mm')}
+                                    Receipt ID: {receipt.id} • Created: {format(receipt.createdAt instanceof Date ? receipt.createdAt : new Date(receipt.createdAt), 'MMM dd, hh:mm a')}
                                   </p>
                                 </div>
                               </div>
