@@ -12,7 +12,8 @@ import {
   Shield,
   Eye,
   ArrowUpRight,
-  ArrowDownRight
+  ArrowDownRight,
+  BarChart3
 } from 'lucide-react';
 import { useDatabase } from '../hooks/useDatabase';
 import { format, startOfMonth, endOfMonth, subMonths } from 'date-fns';
