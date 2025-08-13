@@ -75,7 +75,7 @@ export function Layout({ children, currentPage, onPageChange }: LayoutProps) {
   };
 
   return (
-    <div className={clsx("app-content h-screen bg-gray-50 dark:bg-gray-900 transition-all duration-500", themeTransition && "animate-pulse")}>
+    <div className={clsx("app-content flex h-screen bg-gray-50 dark:bg-gray-900 transition-all duration-500", themeTransition && "animate-pulse")}>
 
       {/* Mobile menu button */}
       <div className="lg:hidden fixed top-4 left-4 z-50">
@@ -89,9 +89,9 @@ export function Layout({ children, currentPage, onPageChange }: LayoutProps) {
 
       {/* Sidebar */}
       <div className={clsx(
-        "z-40 bg-gradient-to-b from-blue-600 to-blue-700 dark:from-gray-800 dark:to-gray-900 shadow-xl transform transition-all duration-300 ease-in-out h-screen flex flex-col fixed inset-y-0 left-0",
+        "z-40 bg-gradient-to-b from-blue-600 to-blue-700 dark:from-gray-800 dark:to-gray-900 shadow-xl transform transition-all duration-300 ease-in-out h-full flex flex-col flex-shrink-0",
         sidebarOpen ? "fixed inset-y-0 left-0" : "fixed inset-y-0 left-0 -translate-x-full",
-        "lg:translate-x-0 lg:static",
+        "lg:translate-x-0 lg:relative",
         sidebarCollapsed ? "lg:w-20" : "lg:w-72",
         "w-64" // Always full width on mobile
       )}>
@@ -214,11 +214,8 @@ export function Layout({ children, currentPage, onPageChange }: LayoutProps) {
       </div>
 
       {/* Content */}
-      <main className={clsx(
-        "overflow-y-auto bg-gradient-to-br from-gray-50 via-blue-50/30 to-indigo-50/30 dark:from-gray-900 dark:via-blue-900/10 dark:to-indigo-900/10 h-screen transition-all duration-300",
-        sidebarCollapsed ? "lg:ml-20" : "lg:ml-72"
-      )}>
-        <div className="p-4 md:p-6 max-w-7xl mx-auto h-full">
+      <main className="flex-1 overflow-y-auto bg-gradient-to-br from-gray-50 via-blue-50/30 to-indigo-50/30 dark:from-gray-900 dark:via-blue-900/10 dark:to-indigo-900/10 h-full">
+        <div className="p-4 md:p-6 max-w-7xl mx-auto">
           {children}
         </div>
       </main>
