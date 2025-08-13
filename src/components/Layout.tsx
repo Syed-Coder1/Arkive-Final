@@ -153,12 +153,7 @@ export function Layout({ children, currentPage, onPageChange }: LayoutProps) {
                     currentPage === item.id ? "text-white drop-shadow-sm" : ""
                   )} />
                   {!sidebarCollapsed && (
-                    <div className="flex items-center gap-3 transition-all duration-200">
-                      <span className="text-xs font-bold bg-white/20 px-2 py-1 rounded-md min-w-[28px] text-center">
-                        {item.number}
-                      </span>
-                      <span className="font-medium text-base whitespace-nowrap">{item.label}</span>
-                    </div>
+                    <span className="font-medium text-base whitespace-nowrap">{item.label}</span>
                   )}
                 </button>
               );

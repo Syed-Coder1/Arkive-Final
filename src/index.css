@@ -386,8 +386,8 @@ a, button, input, select, textarea {
   align-items: center;
   justify-content: center;
   padding: 1rem;
-  backdrop-filter: blur(8px);
-  background: rgba(0, 0, 0, 0.70);
+  backdrop-filter: blur(12px);
+  background: rgba(0, 0, 0, 0.80);
   animation: fadeIn 0.2s ease-out;
 }
 
